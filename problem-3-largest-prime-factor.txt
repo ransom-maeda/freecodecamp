@@ -1,0 +1,14 @@
+const largestPrimeFactor = (number) => {
+  let largestFactor = number;
+
+  for (let i = 2; i <= Math.sqrt(largestFactor); i++) {
+    if (!(largestFactor % i)) {
+      let factor = largestFactor / i;
+      let candidate = largestPrimeFactor(factor);
+
+      return i > candidate ? i : candidate;
+    }
+  }
+
+  return largestFactor;
+}
